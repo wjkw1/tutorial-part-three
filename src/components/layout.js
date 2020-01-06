@@ -5,18 +5,29 @@ const ListLink = props => (
     <Link to={props.to}>{props.children}</Link>
   </li>
 )
+
+const Header = props => (
+  <header style={{ marginBottom: `1.5rem` }}>
+    <Link to="/" style={{ textShadow: `none`, backgroundImage: `none` }}>
+      <h3 style={{ display: `inline` }}>MySweetSite</h3>
+    </Link>
+    <ul style={{ listStyle: `none`, float: `right` }}>
+      <ListLink to="/">Home</ListLink>
+      <ListLink to="/about/">About</ListLink>
+      <ListLink to="/contact/">Contact</ListLink>
+    </ul>
+  </header>
+)
+const Footer = props => (
+  <footer style={{ marginBottom: `1.5rem`, marginTop: `1.5rem` }}>
+    <h3 style={{ display: `inline` }}>I am a footer</h3>
+    <p>This is the content of the footer</p>
+  </footer>
+)
 export default ({ children }) => (
   <div style={{ margin: `3rem auto`, maxWidth: 650, padding: `0 1rem` }}>
-    <header style={{ marginBottom: `1.5rem` }}>
-      <Link to="/" style={{ textShadow: `none`, backgroundImage: `none` }}>
-        <h3 style={{ display: `inline` }}>MySweetSite</h3>
-      </Link>
-      <ul style={{ listStyle: `none`, float: `right` }}>
-        <ListLink to="/">Home</ListLink>
-        <ListLink to="/about/">About</ListLink>
-        <ListLink to="/contact/">Contact</ListLink>
-      </ul>
-    </header>
+    <Header />
     {children}
+    <Footer />
   </div>
 )
